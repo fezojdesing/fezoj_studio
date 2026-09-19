@@ -1,0 +1,12 @@
+.process-page .page-title { margin-bottom: 7vw; }
+.process-page .process-list { margin-top: 10vw; }
+.process-page .process-row { transition: padding-left .5s var(--ease); }
+.process-page .process-row:hover { padding-left: 14px; }
+.process-page .process-row h2 { transition: transform .5s var(--ease); }
+.process-page .process-row:hover h2 { transform: translateX(5px); }
+.process-page .process-row p { font-size: 15px; }
+@media (max-width:700px) {
+  .process-page .process-list { margin-top: 20vw; }
+  .process-page .process-row:hover { padding-left: 0; }
+  .process-page .process-row:hover h2 { transform: none; }
+}

@@ -1,0 +1,12 @@
+.services-page .page-title { margin-bottom: 7vw; }
+.services-page .service-list { margin-top: 9vw; }
+.services-page .service-row { transition: padding-left .5s var(--ease); }
+.services-page .service-row:hover { padding-left: 14px; }
+.services-page .service-row h2 { transition: transform .5s var(--ease); }
+.services-page .service-row:hover h2 { transform: translateX(5px); }
+.services-page .service-row p { font-size: 15px; }
+@media (max-width:700px) {
+  .services-page .service-list { margin-top: 20vw; }
+  .services-page .service-row:hover { padding-left: 0; }
+  .services-page .service-row:hover h2 { transform: none; }
+}

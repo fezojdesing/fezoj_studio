@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Administración — Opiniones | FEZOJ</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./contacto.css">
+  <link rel="stylesheet" href="./menu.css">
+  <link rel="stylesheet" href="./admin.css">
+</head>
+<body class="page admin-page">
+  <header class="site-header">
+    <a class="site-brand logo-brand" href="index.html" aria-label="FEZOJ — Inicio"><img src="fezoj_marca.webp" alt="FEZOJ"></a>
+    <nav><a href="index.html">Volver al sitio</a></nav>
+  </header>
+
+  <main class="page-main admin-main">
+    <section class="admin-intro">
+      <span class="page-kicker">FEZOJ / ADMINISTRACIÓN</span>
+      <h1 class="page-title">Opiniones.</h1>
+      <p class="page-intro">Revisa las opiniones recibidas y decide cuáles se publican en el sitio.</p>
+    </section>
+
+    <section id="loginPanel" class="admin-panel admin-login-panel">
+      <div class="admin-panel-heading">
+        <span class="section-index">ACCESO PRIVADO</span>
+        <h2>Iniciar sesión</h2>
+      </div>
+      <form id="loginForm" class="admin-login-form">
+        <div class="form-field">
+          <label for="admin-email">Correo</label>
+          <input id="admin-email" type="email" autocomplete="email" required placeholder="Tu correo de administrador">
+        </div>
+        <div class="form-field">
+          <label for="admin-password">Contraseña</label>
+          <input id="admin-password" type="password" autocomplete="current-password" required placeholder="Tu contraseña">
+        </div>
+        <div class="admin-actions">
+          <button class="primary-button" type="submit">Entrar</button>
+          <p id="loginMessage" class="admin-message" role="status"></p>
+        </div>
+      </form>
+    </section>
+
+    <section id="dashboard" class="admin-dashboard" hidden>
+      <div class="admin-dashboard-top">
+        <div>
+          <span class="section-index">MODERACIÓN</span>
+          <h2>Opiniones recibidas</h2>
+        </div>
+        <button id="logoutButton" class="secondary-button" type="button">Cerrar sesión</button>
+      </div>
+      <div class="admin-summary" id="adminSummary"></div>
+      <div id="reviewList" class="admin-review-list" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-brand"><img src="fezoj_marca.webp" alt="FEZOJ"></div><span>Panel privado · FEZOJ</span><span>Toluca / México</span></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./supabase-config.js"></script>
+  <script>
+    (() => {
+      const client = window.supabase?.createClient(
+        window.FEZOJ_SUPABASE_URL,
+        window.FEZOJ_SUPABASE_PUBLISHABLE_KEY
+      );
+      const loginPanel = document.getElementById('loginPanel');
+      const dashboard = document.getElementById('dashboard');
+      const loginForm = document.getElementById('loginForm');
+      const loginMessage = document.getElementById('loginMessage');
+      const reviewList = document.getElementById('reviewList');
+      const adminSummary = document.getElementById('adminSummary');
+      const logoutButton = document.getElementById('logoutButton');
+
+      const escapeDate = value => {
+        if (!value) return '';
+        const date = new Date(value);
+        return Number.isNaN(date.getTime()) ? '' : date.toLocaleString('es-MX', { dateStyle: 'medium', timeStyle: 'short' });
+      };
+
+      const setMessage = (message, error = false) => {
+        loginMessage.textContent = message;
+        loginMessage.classList.toggle('error', error);
+      };
+
+      const statusLabel = status => ({ pending: 'Pendiente', approved: 'Aprobada', rejected: 'Rechazada' }[status] || status);
+
+      const renderReviews = reviews => {
+        const pending = reviews.filter(review => review.status === 'pending').length;
+        const approved = reviews.filter(review => review.status === 'approved').length;
+        const rejected = reviews.filter(review => review.status === 'rejected').length;
+        adminSummary.textContent = `${pending} pendientes · ${approved} aprobadas · ${rejected} rechazadas`;
+        reviewList.replaceChildren();
+
+        if (!reviews.length) {
+          const empty = document.createElement('div');
+          empty.className = 'admin-empty';
+          empty.textContent = 'Todavía no hay opiniones recibidas.';
+          reviewList.appendChild(empty);
+          return;
+        }
+
+        reviews.forEach(review => {
+          const card = document.createElement('article');
+          card.className = `admin-review-card status-${review.status}`;
+
+          const top = document.createElement('div');
+          top.className = 'admin-review-top';
+          const identity = document.createElement('div');
+          const name = document.createElement('h3');
+          name.textContent = review.name;
+          const service = document.createElement('span');
+          service.textContent = review.service || 'Proyecto / servicio no especificado';
+          identity.append(name, service);
+          const status = document.createElement('span');
+          status.className = 'review-status';
+          status.textContent = statusLabel(review.status);
+          top.append(identity, status);
+
+          const rating = document.createElement('div');
+          rating.className = 'admin-rating';
+          rating.textContent = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
+
+          const comment = document.createElement('blockquote');
+          comment.textContent = `“${review.comment}”`;
+
+          const date = document.createElement('small');
+          date.textContent = escapeDate(review.created_at);
+
+          const actions = document.createElement('div');
+          actions.className = 'admin-review-actions';
+
+          if (review.status !== 'approved') {
+            const approve = document.createElement('button');
+            approve.className = 'primary-button admin-action';
+            approve.type = 'button';
+            approve.textContent = 'Aprobar';
+            approve.addEventListener('click', () => updateReview(review.id, 'approved'));
+            actions.appendChild(approve);
+          }
+          if (review.status !== 'rejected') {
+            const reject = document.createElement('button');
+            reject.className = 'secondary-button admin-action';
+            reject.type = 'button';
+            reject.textContent = 'Rechazar';
+            reject.addEventListener('click', () => updateReview(review.id, 'rejected'));
+            actions.appendChild(reject);
+          }
+          const remove = document.createElement('button');
+          remove.className = 'text-button admin-action';
+          remove.type = 'button';
+          remove.textContent = 'Eliminar';
+          remove.addEventListener('click', () => deleteReview(review.id));
+          actions.appendChild(remove);
+
+          card.append(top, rating, comment, date, actions);
+          reviewList.appendChild(card);
+        });
+      };
+
+      const loadReviews = async () => {
+        reviewList.innerHTML = '<div class="admin-loading">Cargando opiniones…</div>';
+        const { data, error } = await client
+          .from('reviews')
+          .select('id,name,service,comment,rating,status,created_at,approved_at')
+          .order('created_at', { ascending: false });
+
+        if (error) {
+          reviewList.textContent = 'No se pudieron cargar las opiniones. Verifica que esta cuenta esté configurada como administradora.';
+          console.error(error);
+          return;
+        }
+        renderReviews(data || []);
+      };
+
+      const updateReview = async (id, status) => {
+        const payload = status === 'approved'
+          ? { status, approved_at: new Date().toISOString() }
+          : { status, approved_at: null };
+        const { error } = await client.from('reviews').update(payload).eq('id', id);
+        if (error) {
+          alert('No se pudo actualizar la opinión.');
+          console.error(error);
+          return;
+        }
+        await loadReviews();
+      };
+
+      const deleteReview = async id => {
+        if (!confirm('¿Eliminar definitivamente esta opinión?')) return;
+        const { error } = await client.from('reviews').delete().eq('id', id);
+        if (error) {
+          alert('No se pudo eliminar la opinión.');
+          console.error(error);
+          return;
+        }
+        await loadReviews();
+      };
+
+      const showDashboard = () => {
+        loginPanel.hidden = true;
+        dashboard.hidden = false;
+        loadReviews();
+      };
+
+      loginForm.addEventListener('submit', async event => {
+        event.preventDefault();
+        setMessage('Entrando…');
+        const email = document.getElementById('admin-email').value.trim();
+        const password = document.getElementById('admin-password').value;
+        const { error } = await client.auth.signInWithPassword({ email, password });
+        if (error) {
+          setMessage('No se pudo iniciar sesión. Revisa tu correo y contraseña.', true);
+          console.error(error);
+          return;
+        }
+        setMessage('');
+        showDashboard();
+      });
+
+      logoutButton.addEventListener('click', async () => {
+        await client.auth.signOut();
+        dashboard.hidden = true;
+        loginPanel.hidden = false;
+        loginForm.reset();
+      });
+
+      client.auth.getSession().then(({ data }) => {
+        if (data.session) showDashboard();
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+.admin-main { padding-bottom: 12vw; }
+.admin-intro { padding-bottom: 7vw; }
+.admin-intro .page-title { margin-bottom: 2vw; }
+.admin-panel { border-top: 1px solid rgba(7,26,41,.2); padding-top: 38px; }
+.admin-panel-heading h2,
+.admin-dashboard-top h2 { margin: 15px 0 0; font-size: clamp(38px,5vw,72px); font-weight: 400; letter-spacing: -.06em; line-height: .95; }
+.admin-login-form { max-width: 720px; display: grid; gap: 28px; margin-top: 45px; }
+.admin-actions { display: flex; align-items: center; gap: 20px; }
+.admin-message { margin: 0; color: #65717a; font-size: 12px; }
+.admin-message.error { color: #b42318; }
+.admin-dashboard-top { display: flex; justify-content: space-between; align-items: end; gap: 30px; border-top: 1px solid rgba(7,26,41,.2); padding-top: 38px; }
+.admin-summary { margin: 35px 0 22px; color: #65717a; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+.admin-review-list { display: grid; gap: 18px; }
+.admin-review-card { border: 1px solid rgba(7,26,41,.16); padding: 28px; background: rgba(255,255,255,.22); }
+.admin-review-card.status-approved { border-left: 3px solid var(--fezoj-orange); }
+.admin-review-card.status-rejected { opacity: .58; }
+.admin-review-top { display: flex; justify-content: space-between; align-items: start; gap: 20px; }
+.admin-review-top h3 { margin: 0 0 6px; font-size: 20px; font-weight: 500; }
+.admin-review-top span:not(.review-status) { color: #65717a; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+.review-status { border: 1px solid rgba(7,26,41,.18); border-radius: 999px; padding: 7px 10px; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; }
+.admin-rating { margin: 20px 0 12px; color: var(--fezoj-orange); letter-spacing: .12em; }
+.admin-review-card blockquote { margin: 0; max-width: 900px; font-size: clamp(20px,2.4vw,32px); line-height: 1.15; letter-spacing: -.035em; }
+.admin-review-card > small { display: block; margin-top: 18px; color: #65717a; font-size: 10px; }
+.admin-review-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.admin-action { font-size: 11px; padding: 11px 16px; }
+.text-button { border: 0; background: transparent; color: #65717a; padding: 11px 8px; cursor: pointer; font: inherit; font-size: 11px; }
+.text-button:hover { color: var(--navy); }
+.admin-empty, .admin-loading { padding: 50px 20px; border-top: 1px solid rgba(7,26,41,.14); border-bottom: 1px solid rgba(7,26,41,.14); color: #65717a; }
+@media (max-width: 700px) {
+  .admin-main { padding-bottom: 22vw; }
+  .admin-intro { padding-bottom: 15vw; }
+  .admin-dashboard-top { align-items: flex-start; flex-direction: column; }
+  .admin-dashboard-top .secondary-button { width: 100%; }
+  .admin-review-top { flex-direction: column; }
+  .admin-review-actions { flex-direction: column; align-items: stretch; }
+  .admin-action { width: 100%; }
+  .text-button { width: 100%; text-align: left; padding-left: 16px; }
+}

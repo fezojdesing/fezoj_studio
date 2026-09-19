@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Opiniones — FEZOJ</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./contacto.css">
+  <link rel="stylesheet" href="./menu.css">
+</head>
+<body class="page">
+  <header class="site-header">
+    <a class="site-brand logo-brand" href="index.html" aria-label="FEZOJ — Inicio"><img src="fezoj_marca.webp" alt="FEZOJ"></a>
+    <nav aria-label="Principal">
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="proyectos.html">Proyectos</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="proceso.html">Proceso</a>
+      <a href="opiniones.html" aria-current="page">Opiniones</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false"><i></i><i></i><i></i></button>
+  </header>
+
+  <main class="page-main contact-page">
+    <section class="contact-intro">
+      <span class="page-kicker page-load-reveal">FEZOJ / 006 — OPINIONES</span>
+      <h1 class="page-title page-load-reveal">Lo que queda<br>después del diseño.</h1>
+      <p class="page-intro page-load-reveal">Experiencias reales de personas y proyectos que han confiado en FEZOJ.</p>
+    </section>
+
+    <section class="reviews-section" id="opiniones">
+      <div class="section-heading reviews-heading">
+        <span class="section-index">02 / OPINIONES</span>
+        <div>
+          <h2>Lo que dicen quienes han trabajado conmigo.</h2>
+          <p>Las opiniones aprobadas se mostrarán aquí de forma breve, para que futuros clientes puedan conocer experiencias reales sin ocupar demasiado espacio.</p>
+        </div>
+      </div>
+
+      <div class="reviews-shell">
+        <div class="reviews-track" id="reviewsTrack" aria-live="polite"></div>
+        <div class="reviews-empty" id="reviewsEmpty">
+          <span class="quote-mark">“</span>
+          <p>Aún no hay opiniones publicadas.</p>
+          <small>Cuando recibas tus primeras valoraciones, este espacio puede convertirse en una galería de testimonios reales.</small>
+        </div>
+        <button class="review-nav review-prev" type="button" aria-label="Opinión anterior">Anterior</button>
+        <button class="review-nav review-next" type="button" aria-label="Siguiente opinión">Siguiente</button>
+        <div class="review-dots" id="reviewDots" aria-hidden="true"></div>
+      </div>
+
+      <div class="review-form-wrap">
+        <div class="review-form-copy">
+          <span class="section-index">DEJA TU OPINIÓN</span>
+          <h3>¿Ya trabajamos juntos?</h3>
+          <p>Tu experiencia puede ayudar a que alguien más conozca cómo es trabajar con FEZOJ.</p>
+        </div>
+        <form class="review-form" id="reviewForm">
+          <div class="rating-field">
+            <span class="rating-label">Tu valoración <span>*</span></span>
+            <div class="stars" role="radiogroup" aria-label="Calificación de 1 a 5 estrellas">
+              <button type="button" class="star" data-rating="1" aria-label="1 estrella" aria-checked="false">★</button>
+              <button type="button" class="star" data-rating="2" aria-label="2 estrellas" aria-checked="false">★</button>
+              <button type="button" class="star" data-rating="3" aria-label="3 estrellas" aria-checked="false">★</button>
+              <button type="button" class="star" data-rating="4" aria-label="4 estrellas" aria-checked="false">★</button>
+              <button type="button" class="star" data-rating="5" aria-label="5 estrellas" aria-checked="false">★</button>
+            </div>
+            <input type="hidden" id="review-rating" name="rating" value="">
+          </div>
+          <div class="review-grid">
+            <div class="form-field">
+              <label for="review-name">Nombre <span>*</span></label>
+              <input id="review-name" name="name" type="text" required placeholder="Tu nombre">
+            </div>
+            <div class="form-field">
+              <label for="review-project">Proyecto / servicio</label>
+              <input id="review-project" name="project" type="text" placeholder="Ej. Identidad, evento, animación...">
+            </div>
+            <div class="form-field form-field-full">
+              <label for="review-comment">Tu comentario <span>*</span></label>
+              <textarea id="review-comment" name="comment" rows="4" required maxlength="500" placeholder="¿Cómo fue tu experiencia trabajando conmigo?"></textarea>
+            </div>
+          </div>
+          <div class="review-submit-row">
+            <button class="secondary-button" type="submit">Enviar opinión <span></span></button>
+            <small>Las opiniones se revisan antes de publicarse.</small>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-brand"><img src="fezoj_marca.webp" alt="FEZOJ"></div><span>© FEZOJ · Todos los derechos reservados.</span><span>Toluca / México</span></footer>
+
+  <div class="mobile-drawer" aria-hidden="true">
+    <div class="drawer-backdrop"></div>
+    <aside class="drawer-panel" aria-label="Menú móvil">
+      <button class="drawer-close" aria-label="Cerrar menú"><span></span><span></span></button>
+      <span class="drawer-label">ÍNDICE DEL SITIO</span>
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="proyectos.html">Proyectos</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="proceso.html">Proceso</a>
+        <a href="opiniones.html">Opiniones</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <span class="drawer-label second">ENCUÉNTRANOS</span>
+      <div class="drawer-social">
+        <a href="https://www.instagram.com/fezoj.oficial/" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="https://www.behance.net/gallery/253564235/Portafolio-2026" target="_blank" rel="noreferrer">Behance</a>
+      </div>
+    </aside>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./supabase-config.js"></script>
+  <script src="./script.js"></script>
+  <script>
+    (() => {
+      const reviewForm = document.getElementById('reviewForm');
+      const ratingInput = document.getElementById('review-rating');
+      const stars = [...document.querySelectorAll('.star')];
+      const reviewsTrack = document.getElementById('reviewsTrack');
+      const reviewsEmpty = document.getElementById('reviewsEmpty');
+      const reviewPrev = document.querySelector('.review-prev');
+      const reviewNext = document.querySelector('.review-next');
+      const reviewDots = document.getElementById('reviewDots');
+
+      const supabaseClient = window.supabase?.createClient(
+        window.FEZOJ_SUPABASE_URL,
+        window.FEZOJ_SUPABASE_PUBLISHABLE_KEY
+      );
+
+      const paintStars = value => {
+        stars.forEach(star => {
+          const active = Number(star.dataset.rating) <= Number(value || 0);
+          star.classList.toggle('selected', active);
+          star.setAttribute('aria-checked', String(active && Number(star.dataset.rating) === Number(value)));
+        });
+      };
+      stars.forEach(star => star.addEventListener('click', () => {
+        ratingInput.value = star.dataset.rating;
+        paintStars(ratingInput.value);
+      }));
+
+      let reviews = [];
+      let currentReview = 0;
+
+      const renderReview = () => {
+        if (!reviews.length || !reviewsTrack) return;
+        reviewsTrack.style.transform = `translateX(-${currentReview * 100}%)`;
+        [...reviewDots.children].forEach((dot, index) => dot.classList.toggle('active', index === currentReview));
+      };
+
+      const renderReviews = () => {
+        if (!reviewsTrack || !reviewsEmpty) return;
+        reviewsTrack.replaceChildren();
+        reviewDots?.replaceChildren();
+
+        if (!reviews.length) {
+          reviewsEmpty.hidden = false;
+          if (reviewPrev) reviewPrev.hidden = true;
+          if (reviewNext) reviewNext.hidden = true;
+          return;
+        }
+
+        reviewsEmpty.hidden = true;
+        if (reviewPrev) reviewPrev.hidden = reviews.length < 2;
+        if (reviewNext) reviewNext.hidden = reviews.length < 2;
+
+        reviews.forEach((review, index) => {
+          const card = document.createElement('article');
+          card.className = 'review-card';
+          const content = document.createElement('div');
+          const quote = document.createElement('blockquote');
+          quote.textContent = `“${review.comment}”`;
+          const starsDisplay = document.createElement('div');
+          starsDisplay.className = 'review-stars-display';
+          starsDisplay.setAttribute('aria-label', `${review.rating} de 5 estrellas`);
+          starsDisplay.textContent = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
+          content.append(quote, starsDisplay);
+
+          const meta = document.createElement('div');
+          meta.className = 'review-meta';
+          const name = document.createElement('strong');
+          name.textContent = review.name;
+          meta.appendChild(name);
+          if (review.service) {
+            const service = document.createElement('span');
+            service.textContent = review.service;
+            meta.appendChild(service);
+          }
+          card.append(content, meta);
+          reviewsTrack.appendChild(card);
+
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'review-dot';
+          dot.setAttribute('aria-label', `Ver opinión ${index + 1}`);
+          dot.addEventListener('click', () => {
+            currentReview = index;
+            renderReview();
+          });
+          reviewDots?.appendChild(dot);
+        });
+        currentReview = 0;
+        renderReview();
+      };
+
+      const loadReviews = async () => {
+        if (!supabaseClient) return;
+        const { data, error } = await supabaseClient
+          .from('reviews')
+          .select('id,name,service,comment,rating,created_at')
+          .eq('status', 'approved')
+          .order('created_at', { ascending: false });
+        if (error) {
+          console.error('No se pudieron cargar las opiniones:', error);
+          return;
+        }
+        reviews = data || [];
+        renderReviews();
+      };
+
+      reviewPrev?.addEventListener('click', () => {
+        if (!reviews.length) return;
+        currentReview = (currentReview - 1 + reviews.length) % reviews.length;
+        renderReview();
+      });
+      reviewNext?.addEventListener('click', () => {
+        if (!reviews.length) return;
+        currentReview = (currentReview + 1) % reviews.length;
+        renderReview();
+      });
+
+      reviewForm?.addEventListener('submit', async event => {
+        event.preventDefault();
+        if (!ratingInput.value) {
+          alert('Selecciona una calificación de 1 a 5 estrellas.');
+          return;
+        }
+        if (!supabaseClient) {
+          alert('No se pudo conectar con el sistema de opiniones. Inténtalo nuevamente.');
+          return;
+        }
+        const data = new FormData(reviewForm);
+        const submitButton = reviewForm.querySelector('button[type="submit"]');
+        const originalText = submitButton?.textContent || 'Enviar opinión';
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = 'Enviando…';
+        }
+
+        const { error } = await supabaseClient.from('reviews').insert({
+          name: String(data.get('name') || '').trim(),
+          service: String(data.get('project') || '').trim() || null,
+          comment: String(data.get('comment') || '').trim(),
+          rating: Number(data.get('rating')),
+          status: 'pending'
+        });
+
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = originalText;
+        }
+        if (error) {
+          console.error('Error al enviar opinión:', error);
+          alert('No pudimos enviar tu opinión. Inténtalo nuevamente en unos momentos.');
+          return;
+        }
+        reviewForm.reset();
+        ratingInput.value = '';
+        paintStars('');
+        alert('¡Gracias por tu opinión! Quedó enviada y aparecerá en la página cuando sea aprobada.');
+      });
+
+      loadReviews();
+    })();
+  </script>
+</body>
+</html>

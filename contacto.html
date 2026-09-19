@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contacto — FEZOJ</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./contacto.css">
+  <link rel="stylesheet" href="./menu.css">
+</head>
+<body class="page">
+  <header class="site-header">
+    <a class="site-brand logo-brand" href="index.html" aria-label="FEZOJ — Inicio"><img src="fezoj_marca.webp" alt="FEZOJ"></a>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="proyectos.html">Proyectos</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="proceso.html">Proceso</a>
+      <a href="opiniones.html">Opiniones</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false"><i></i><i></i><i></i></button>
+  </header>
+
+  <main class="page-main contact-page">
+    <section class="contact-intro">
+      <span class="page-kicker page-load-reveal">FEZOJ / 007 — CONTACTO</span>
+      <h1 class="page-title page-load-reveal">Hagamos algo<br>que permanezca.</h1>
+      <p class="page-intro page-load-reveal">Cuéntame qué quieres crear. Una idea, un evento, una marca o una experiencia.</p>
+      <div class="contact-links">
+        <a href="https://wa.me/527223825990" target="_blank" rel="noreferrer">WhatsApp</a>
+        <a href="mailto:fezojdesing@gmail.com">Correo</a>
+        <a href="https://www.instagram.com/fezoj.oficial/" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="https://www.behance.net/gallery/253564235/Portafolio-2026" target="_blank" rel="noreferrer">Behance</a>
+        <a href="#cotizar" class="contact-quote-link">Cotizar proyecto</a>
+      </div>
+    </section>
+
+    <section class="quote-section" id="cotizar">
+      <div class="section-heading">
+        <span class="section-index">01 / COTIZACIÓN</span>
+        <div>
+          <h2>Cuéntame tu proyecto.</h2>
+          <p>Completa estos datos y recibirás una respuesta con los siguientes pasos para aterrizar tu idea.</p>
+        </div>
+      </div>
+
+      <form class="quote-form" id="quoteForm">
+        <div class="form-field">
+          <label for="quote-name">Nombre completo <span>*</span></label>
+          <input id="quote-name" name="name" type="text" autocomplete="name" required placeholder="Tu nombre">
+        </div>
+        <div class="form-field">
+          <label for="quote-email">Correo electrónico <span>*</span></label>
+          <input id="quote-email" name="email" type="email" autocomplete="email" required placeholder="nombre@correo.com">
+        </div>
+        <div class="form-field">
+          <label for="quote-phone">Número telefónico</label>
+          <input id="quote-phone" name="phone" type="tel" autocomplete="tel" placeholder="+52 722 000 0000">
+        </div>
+        <div class="form-field">
+          <label for="quote-service">¿Qué necesitas?</label>
+          <select id="quote-service" name="service">
+            <option value="">Selecciona una opción</option>
+            <option>Diseño gráfico / identidad</option>
+            <option>Animación / motion graphics</option>
+            <option>Producción audiovisual</option>
+            <option>Experiencia / evento</option>
+            <option>Marketing / contenido</option>
+            <option>Desarrollo de páginas web</option>
+            <option>Otro proyecto</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="quote-budget">Presupuesto estimado</label>
+          <select id="quote-budget" name="budget">
+            <option value="">Prefiero revisarlo contigo</option>
+            <option>Menos de $5,000 MXN</option>
+            <option>$5,000 — $10,000 MXN</option>
+            <option>$10,000 — $25,000 MXN</option>
+            <option>$25,000 — $50,000 MXN</option>
+            <option>Más de $50,000 MXN</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="quote-date">¿Cuándo lo necesitas?</label>
+          <input id="quote-date" name="date" type="text" placeholder="Ej. Octubre / Sin fecha definida">
+        </div>
+        <div class="form-field form-field-full">
+          <label for="quote-message">Cuéntame brevemente qué necesitas <span>*</span></label>
+          <textarea id="quote-message" name="message" rows="6" required placeholder="Objetivo, cantidad de piezas, tipo de evento, referencias o cualquier detalle que consideres importante..."></textarea>
+        </div>
+        <div class="form-actions form-field-full">
+          <button class="primary-button" type="submit">Solicitar cotización <span></span></button>
+          <p>Al enviar se abrirá tu aplicación de correo con la información organizada para FEZOJ.</p>
+        </div>
+      </form>
+    </section>
+
+    
+  </main>
+
+  <footer class="site-footer"><div class="footer-brand"><img src="fezoj_marca.webp" alt="FEZOJ"></div><span>© FEZOJ · Todos los derechos reservados.</span><span>Toluca / México</span></footer>
+
+  <div class="mobile-drawer" aria-hidden="true">
+    <div class="drawer-backdrop"></div>
+    <aside class="drawer-panel" aria-label="Menú móvil">
+      <button class="drawer-close" aria-label="Cerrar menú"><span></span><span></span></button>
+      <span class="drawer-label">ÍNDICE DEL SITIO</span>
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="proyectos.html">Proyectos</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="proceso.html">Proceso</a>
+        <a href="opiniones.html">Opiniones</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <span class="drawer-label second">ENCUÉNTRANOS</span>
+      <div class="drawer-social">
+        <a href="https://www.instagram.com/fezoj.oficial/" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="https://www.behance.net/gallery/253564235/Portafolio-2026" target="_blank" rel="noreferrer">Behance</a>
+      </div>
+    </aside>
+  </div>
+
+  <script src="./script.js"></script>
+  <script>
+    (() => {
+      const mail = 'fezojdesing@gmail.com';
+      const quoteForm = document.getElementById('quoteForm');
+      const reviewForm = document.getElementById('reviewForm');
+      const ratingInput = document.getElementById('review-rating');
+      const stars = [...document.querySelectorAll('.star')];
+      const reviewsTrack = document.getElementById('reviewsTrack');
+      const reviewsEmpty = document.getElementById('reviewsEmpty');
+      const reviewPrev = document.querySelector('.review-prev');
+      const reviewNext = document.querySelector('.review-next');
+      const reviewDots = document.getElementById('reviewDots');
+
+      const supabaseClient = window.supabase?.createClient(
+        window.FEZOJ_SUPABASE_URL,
+        window.FEZOJ_SUPABASE_PUBLISHABLE_KEY
+      );
+
+      const encode = value => encodeURIComponent(value || '');
+
+      quoteForm?.addEventListener('submit', event => {
+        event.preventDefault();
+        const data = new FormData(quoteForm);
+        const subject = `Solicitud de cotización — ${data.get('name')}`;
+        const body = [
+          'SOLICITUD DE COTIZACIÓN — FEZOJ', '',
+          `Nombre: ${data.get('name')}`,
+          `Correo: ${data.get('email')}`,
+          `Teléfono: ${data.get('phone') || 'No proporcionado'}`,
+          `Servicio: ${data.get('service') || 'No especificado'}`,
+          `Presupuesto: ${data.get('budget') || 'Prefiero revisarlo contigo'}`,
+          `Fecha / plazo: ${data.get('date') || 'No definido'}`, '',
+          'DETALLES DEL PROYECTO:',
+          data.get('message')
+        ].join('\n');
+        window.location.href = `mailto:${mail}?subject=${encode(subject)}&body=${encode(body)}`;
+      });
+
+    })();
+  </script>
+</body>
+</html>

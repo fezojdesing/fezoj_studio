@@ -1,0 +1,488 @@
+@font-face {
+  font-family: 'Helvetica Neue ME';
+  src: url('https://db.onlinewebfonts.com/c/95cecf452d3208890088a5b4c19c7ec?family=Helvetica+Neue+ME') format('woff2');
+  font-display: swap;
+}
+
+:root {
+  --cream: #efeee9;
+  --navy: #071a29;
+  --navy2: #0b2638;
+  --ink: #0b1116;
+  --muted: #73808a;
+  --line: rgba(7, 26, 41, .28);
+  --ease: cubic-bezier(.22, 1, .36, 1);
+
+  /* Misma altura que el header de las páginas interiores */
+  --header-height: 90px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--navy);
+  font-family: 'Helvetica Neue ME', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  height: 100dvh;
+  min-height: 620px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: #efeee9;
+  color: #071a29;
+}
+
+.hero-bg,
+.hero-shade {
+  display: none;
+}
+
+/* =========================================================
+   HEADER DEL HOME
+   Ahora queda FIJO durante todo el scroll.
+   ========================================================= */
+
+.hero-header {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 1000;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  height: var(--header-height);
+
+  padding: 32px 40px;
+
+  color: #071a29;
+
+  background: rgba(239, 238, 233, .96);
+
+  border-bottom: 1px solid rgba(7, 26, 41, .14);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.brand {
+  font-size: 18px;
+  letter-spacing: .04em;
+  animation-delay: 800ms;
+}
+
+.desktop-cluster {
+  display: flex;
+  align-items: flex-start;
+  gap: 6rem;
+  font-size: 14px;
+}
+
+.nav-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nav-stack a {
+  transition: opacity .3s;
+}
+
+.nav-stack a:hover {
+  opacity: .6;
+}
+
+.year {
+  animation-delay: 900ms;
+}
+
+/* =========================================================
+   MARQUEE
+   ========================================================= */
+
+.marquee-wrap {
+  position: absolute;
+  inset: 20vh 0 auto;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.marquee {
+  display: flex;
+  width: max-content;
+  white-space: nowrap;
+
+  font-size: 25vh;
+  line-height: .82;
+  letter-spacing: -.055em;
+
+  color: #071a29;
+
+  animation: marquee 30s linear infinite;
+}
+
+.marquee span {
+  padding-right: 6vw;
+}
+
+.marquee span:last-child {
+  padding-right: 0;
+}
+
+/* =========================================================
+   RETRATO
+   ========================================================= */
+
+.hero-portrait {
+  position: absolute;
+
+  z-index: 20;
+
+  inset: 7% 12% 0;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  pointer-events: none;
+}
+
+.hero-portrait img {
+  height: 91%;
+  width: auto;
+  max-width: 72vw;
+
+  object-fit: contain;
+
+  filter: drop-shadow(0 25px 40px rgba(0, 0, 0, .18));
+}
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.hero-intro {
+  position: absolute;
+
+  z-index: 25;
+
+  left: 40px;
+  bottom: 150px;
+
+  max-width: 430px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  color: #071a29;
+}
+
+.hero-intro span {
+  font-size: 11px;
+  letter-spacing: .18em;
+  opacity: .7;
+}
+
+.hero-intro strong {
+  font-size: 20px;
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: -.02em;
+}
+
+/* =========================================================
+   LÍNEA
+   ========================================================= */
+
+.hero-rule {
+  position: absolute;
+
+  z-index: 10;
+
+  left: 40px;
+  right: 40px;
+  bottom: 112px;
+
+  height: 2px;
+
+  background: #071a29;
+
+  transform-origin: left;
+}
+
+/* =========================================================
+   FOOTER DEL HERO
+   ========================================================= */
+
+.hero-footer {
+  position: absolute;
+
+  inset: auto 0 0;
+
+  z-index: 30;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  padding: 0 40px 30px;
+
+  font-size: 14px;
+  line-height: 1.45;
+
+  color: #071a29;
+}
+
+.hero-footer div {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-footer .right {
+  text-align: right;
+}
+
+.hero-footer-legal {
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.hero-footer-legal img {
+  width: 74px;
+  height: auto;
+  margin-bottom: 2px;
+}
+
+.hero-footer-legal span {
+  font-size: 10px;
+  letter-spacing: .02em;
+  opacity: .68;
+}
+
+/* =========================================================
+   HAMBURGER
+   ========================================================= */
+
+.hamburger {
+  display: none;
+
+  background: none;
+  border: 0;
+
+  color: #071a29;
+
+  width: 40px;
+  height: 40px;
+
+  padding: 10px;
+
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 5px;
+
+  cursor: pointer;
+}
+
+.hamburger i {
+  display: block;
+
+  height: 1px;
+  width: 22px;
+
+  background: currentColor;
+
+  transition:
+    transform .5s var(--ease),
+    opacity .3s;
+}
+
+/* =========================================================
+   ANIMACIONES
+   ========================================================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+
+  transition:
+    opacity .9s var(--ease),
+    transform .9s var(--ease);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.anim-fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+
+  animation:
+    fadeUp
+    .9s
+    var(--ease)
+    var(--d, 0ms)
+    both;
+}
+
+.anim-rise-in {
+  opacity: 0;
+
+  animation:
+    rise
+    1.4s
+    var(--ease)
+    300ms
+    both;
+}
+
+.anim-line {
+  transform: scaleX(0);
+
+  animation:
+    line
+    1.1s
+    cubic-bezier(.76, 0, .24, 1)
+    1200ms
+    both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(4vh) scale(1.03);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes line {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* =========================================================
+   MÓVIL
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  :root {
+    --header-height: 74px;
+  }
+
+  .desktop-cluster {
+    display: none;
+  }
+
+  .hero-header {
+    height: var(--header-height);
+    padding: 18px 22px;
+
+    align-items: center;
+  }
+
+  .marquee-wrap {
+    inset: 18vh 0 auto;
+  }
+
+  .marquee {
+    font-size: 21vh;
+  }
+
+  .hero-footer-legal img {
+    width: 68px;
+  }
+
+  .hero-footer-legal span {
+    font-size: 9px;
+  }
+}
+
+/* =========================================================
+   REDUCCIÓN DE MOVIMIENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
