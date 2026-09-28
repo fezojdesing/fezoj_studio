@@ -161,15 +161,20 @@
 .reviews-empty {
   min-height: 260px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 45px 30px;
 }
-.reviews-empty .quote-mark { font-size: 70px; line-height: .5; opacity: .14; }
-.reviews-empty p { margin: 20px 0 7px; font-size: 22px; letter-spacing: -.03em; }
-.reviews-empty small { max-width: 520px; color: #65717a; line-height: 1.5; }
+.reviews-empty .quote-mark {
+  display: block;
+  font-size: clamp(62px, 7vw, 92px);
+  line-height: 1;
+  letter-spacing: -.14em;
+  color: var(--navy);
+  opacity: .12;
+  transform: translateY(-3px);
+}
 .review-nav {
   position: absolute;
   top: 50%;

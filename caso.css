@@ -161,3 +161,47 @@
  .case-nav-next:hover { transform:none; }
  .case-back { margin-top:18px; }
 }
+
+/* Responsive project-title protection for tablet widths. */
+@media (min-width: 701px) and (max-width: 980px) {
+  .case-title {
+    font-size: clamp(62px, 10.5vw, 112px);
+    max-width: 100%;
+  }
+
+  .case-title em {
+    display: inline;
+    font-size: .88em;
+  }
+}
+
+/* Final mobile override: keep long project words intact on narrow phones. */
+@media (max-width:700px) {
+  .case-title {
+    font-size: clamp(52px, 15vw, 88px);
+    line-height: .86;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+    text-wrap: balance;
+  }
+
+  .case-title em {
+    display: inline;
+    font-size: .82em;
+    line-height: .92;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+  }
+}
+
+@media (max-width:390px) {
+  .case-title {
+    font-size: clamp(46px, 14vw, 62px);
+  }
+
+  .case-title em {
+    font-size: .80em;
+  }
+}

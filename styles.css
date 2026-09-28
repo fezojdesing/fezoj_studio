@@ -175,7 +175,7 @@ img { max-width: 100%; display: block; }
 html, body { max-width: 100%; overflow-x: hidden; }
 *, *::before, *::after { min-width: 0; }
 img, svg, video { max-width: 100%; }
-h1, h2, h3, p, a, span, blockquote, label, button { overflow-wrap: break-word; }
+h1, h2, h3, p, a, span, blockquote, label, button { overflow-wrap: normal; }
 
 @media (max-width: 900px) {
   .site-header { padding-left: 28px; padding-right: 28px; }
@@ -231,4 +231,59 @@ h1, h2, h3, p, a, span, blockquote, label, button { overflow-wrap: break-word; }
   .site-header .logo-brand { width: 102px; height: 37px; }
   .page-main { padding-left: 18px; padding-right: 18px; }
   .page-title { font-size: clamp(50px, 14.2vw, 72px); }
+}
+
+/* FEZOJ — Responsive typography safeguard
+   Never break a word in the middle on headings or editorial labels.
+   Layouts are allowed to reflow at spaces instead. */
+h1, h2, h3, h4, h5, h6,
+.page-title, .case-title,
+.feature-copy h2, .split-project-side h2, .loreny-copy h2,
+.disciplines-intro h2, .projects-cta h2,
+.section-heading h2, .about-copy blockquote,
+.service-row h2, .process-row h2,
+.case-section h2,
+.page-kicker, .case-kicker, .mini-label, .feature-meta,
+.discipline-row h3 {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+/* Keep editorial headlines readable without allowing accidental word clipping. */
+.page-title, .case-title, h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+@media (max-width: 700px) {
+  /* Long project titles get a slightly smaller second line rather than splitting words. */
+  .case-title {
+    font-size: clamp(52px, 15vw, 88px);
+    line-height: .86;
+  }
+
+  .case-title em {
+    display: inline;
+    font-size: .82em;
+    line-height: .92;
+  }
+
+  /* Prevent narrow devices from forcing a headline into an unreadable edge case. */
+  .page-title {
+    font-size: clamp(52px, 15vw, 88px);
+  }
+}
+
+@media (max-width: 390px) {
+  .case-title {
+    font-size: clamp(46px, 14vw, 62px);
+  }
+
+  .case-title em {
+    font-size: .80em;
+  }
+
+  .page-title {
+    font-size: clamp(48px, 14vw, 72px);
+  }
 }
